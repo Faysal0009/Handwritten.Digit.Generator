@@ -2,6 +2,10 @@
 
 A web application that generates handwritten digits using a Conditional GAN trained on the MNIST dataset.
 
+## 🌐 Live Demo
+
+🚀 **[View Live App](https://your-app-name.streamlit.app)** (Replace with your actual Streamlit Cloud URL)
+
 ## 🚀 Step-by-Step Setup Instructions
 
 ### Step 1: Train the Model (Google Colab)
@@ -44,6 +48,52 @@ python create_demo_model.py
 # Run the app locally
 streamlit run app.py
 ```
+
+## 🚀 Automatic Deployment
+
+This app is configured for automatic deployment using **Streamlit Community Cloud**. Here's how it works:
+
+### Setup Automatic Deployment:
+
+1. **Push to GitHub**: Commit and push your code to a GitHub repository
+2. **Connect to Streamlit Cloud**:
+   - Go to [share.streamlit.io](https://share.streamlit.io)
+   - Sign in with your GitHub account
+   - Click "New app"
+   - Select your GitHub repository
+   - Choose `app.py` as your main file
+   - Click "Deploy"
+
+3. **Automatic Updates**: 
+   - Every time you push changes to your GitHub repository, Streamlit Cloud will automatically redeploy your app
+   - No manual intervention required!
+   - Deployment typically takes 2-3 minutes
+
+### Alternative Deployment Options:
+
+#### Option 1: Heroku (with GitHub Actions)
+```yaml
+# .github/workflows/deploy.yml
+name: Deploy to Heroku
+on:
+  push:
+    branches: [ main ]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: akhileshns/heroku-deploy@v3.12.12
+      with:
+        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+        heroku_app_name: "your-app-name"
+        heroku_email: "your-email@example.com"
+```
+
+#### Option 2: Railway
+- Connect your GitHub repo to Railway
+- Automatic deployments on every push
+- No configuration needed for Streamlit apps
 
 ## 📁 Project Structure
 
@@ -179,4 +229,4 @@ st.set_page_config(
 ## 📄 License
 
 This project is for educational purposes. Feel free to modify and use for learning.
-"# Handwritten-Digit-Generation" 
+"# Handwritten-Digit-Generation"
